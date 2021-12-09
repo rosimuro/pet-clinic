@@ -76,5 +76,27 @@ pipeline {
           }
          }
         
+         stage('Decide Deploy to Prod'){
+            when {
+                branch 'master'
+            }
+            agent none
+            steps {
+                input message: 'Deploy to Prod?'
+            }            
+        }
+
+         stage('Deploy Prod'){
+            when {
+                branch 'master'
+            }
+            agent any
+            steps {
+                sh "chmod +x deploy.sh"
+                sh "./deploy.sh prod $TAG_NAME"
+            }
+        }
+
+
     }
 }
