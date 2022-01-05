@@ -55,6 +55,7 @@
 			<artifactId>tomcat-embed-core</artifactId>
 			<version>9.0.44</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
